@@ -14,12 +14,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/10/笔记，JS/index.html">
 <meta property="og:site_name" content="ZyqBlog">
 <meta property="og:description" content="作用：为特定的类生命通用的变量后者函数（不用每次再构造一个函数的时候创建并初始化这个函数）例子：12345678910function Fish(name,color)&amp;#123;this.name = name;this.color = color;&amp;#125;Fish.prototype.liveIn = &quot;water&quot;;Fish.prototype.price = 20;var fish1">
-<meta property="og:image" content="http://yoursite.com/pic/5.png">
-<meta property="og:updated_time" content="2016-09-10T07:02:58.723Z">
+<meta property="og:image" content="https://github.com/Whereyawannago/hexopic/blob/master/5.png">
+<meta property="og:updated_time" content="2016-09-10T07:15:38.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Prototype">
 <meta name="twitter:description" content="作用：为特定的类生命通用的变量后者函数（不用每次再构造一个函数的时候创建并初始化这个函数）例子：12345678910function Fish(name,color)&amp;#123;this.name = name;this.color = color;&amp;#125;Fish.prototype.liveIn = &quot;water&quot;;Fish.prototype.price = 20;var fish1">
-<meta name="twitter:image" content="http://yoursite.com/pic/5.png">
+<meta name="twitter:image" content="https://github.com/Whereyawannago/hexopic/blob/master/5.png">
     
 
     
@@ -251,8 +251,9 @@
         
             
             <p>作用：为特定的类生命通用的变量后者函数<br>（不用每次再构造一个函数的时候创建并初始化这个函数）<br>例子：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Fish(name,color)&#123;</div><div class="line">this.name = name;</div><div class="line">this.color = color;</div><div class="line">&#125;</div><div class="line">Fish.prototype.liveIn = <span class="string">"water"</span>;</div><div class="line">Fish.prototype.price = 20;</div><div class="line"></div><div class="line">var fish1 = new Fish(<span class="string">"mackarel"</span> , <span class="string">"gary"</span>);</div><div class="line">var fish2 = new Fish(<span class="string">"goldfish"</span> , <span class="string">"gold"</span>);</div><div class="line">var fish3 = new Fish(<span class="string">"salmon"</span> , <span class="string">"white"</span>);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>用prototype来给对象添加函数<br>例子：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Employee(name , salary)&#123;</div><div class="line">this.name = name;</div><div class="line">this.salay = salary;</div><div class="line">&#125;</div><div class="line">Employee.prototype.getSalary = <span class="keyword">function</span> <span class="function"><span class="title">getSalaryFunction</span></span>()&#123;</div><div class="line"><span class="built_in">return</span> this.salary;</div><div class="line">&#125;</div><div class="line">Employee.prototype.addSalary = <span class="keyword">function</span> addSalaryFunction(addition)&#123;</div><div class="line">this.salary = this.salary+addition;</div><div class="line">&#125;</div><div class="line">var boss1 = new Employee(<span class="string">"Joan"</span> , 20000);</div><div class="line">var boss2 = new Employee(<span class="string">"Kim"</span> , 10000);</div><div class="line">var boss3 = new Employee(<span class="string">"Sam"</span> , 25000);</div><div class="line"></div><div class="line">alert(boss1.getSalary()); //20000</div><div class="line">alert(boss2.getSalary()); //10000</div><div class="line">alert(boss3.getSalary()); //25000</div></pre></td></tr></table></figure></p>
-<p><img src="pic/5.png" alt="示意图"></p>
+<p><img src="https://github.com/Whereyawannago/hexopic/blob/master/5.png" alt="示意图"></p>
 
         
         </div>
@@ -263,7 +264,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/09/10/笔记，JS/" data-id="ciswuom3g00013gm7lhrqqam4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2016/09/10/笔记，JS/" data-id="ciswuz4xr0004h8m7rlvvt4m5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
