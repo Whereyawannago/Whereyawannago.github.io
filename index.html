@@ -157,11 +157,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                2
+                4
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                2
+                4
                 <span>标签</span>
             </div>
         </div>
@@ -210,6 +210,282 @@
 
             
             <section id="main">
+    <article id="post-笔记，JS" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/10/笔记，JS/">Prototype</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/10/笔记，JS/">
+            <time datetime="2016-09-10T07:06:32.443Z" itemprop="datePublished">2016-09-10</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/笔记，JS/">笔记，JS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>作用：为特定的类生命通用的变量后者函数<br>（不用每次再构造一个函数的时候创建并初始化这个函数）<br>例子：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Fish(name,color)&#123;</div><div class="line">this.name = name;</div><div class="line">this.color = color;</div><div class="line">&#125;</div><div class="line">Fish.prototype.liveIn = <span class="string">"water"</span>;</div><div class="line">Fish.prototype.price = 20;</div><div class="line"></div><div class="line">var fish1 = new Fish(<span class="string">"mackarel"</span> , <span class="string">"gary"</span>);</div><div class="line">var fish2 = new Fish(<span class="string">"goldfish"</span> , <span class="string">"gold"</span>);</div><div class="line">var fish3 = new Fish(<span class="string">"salmon"</span> , <span class="string">"white"</span>);</div></pre></td></tr></table></figure></p>
+<p>用prototype来给对象添加函数<br>例子：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Employee(name , salary)&#123;</div><div class="line">this.name = name;</div><div class="line">this.salay = salary;</div><div class="line">&#125;</div><div class="line">Employee.prototype.getSalary = <span class="keyword">function</span> <span class="function"><span class="title">getSalaryFunction</span></span>()&#123;</div><div class="line"><span class="built_in">return</span> this.salary;</div><div class="line">&#125;</div><div class="line">Employee.prototype.addSalary = <span class="keyword">function</span> addSalaryFunction(addition)&#123;</div><div class="line">this.salary = this.salary+addition;</div><div class="line">&#125;</div><div class="line">var boss1 = new Employee(<span class="string">"Joan"</span> , 20000);</div><div class="line">var boss2 = new Employee(<span class="string">"Kim"</span> , 10000);</div><div class="line">var boss3 = new Employee(<span class="string">"Sam"</span> , 25000);</div><div class="line"></div><div class="line">alert(boss1.getSalary()); //20000</div><div class="line">alert(boss2.getSalary()); //10000</div><div class="line">alert(boss3.getSalary()); //25000</div></pre></td></tr></table></figure></p>
+<p><img src="pic/5.png" alt="示意图"></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/09/10/笔记，JS/" data-id="ciswuom3g00013gm7lhrqqam4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/09/10/笔记，JS/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://yoursite.com/2016/09/10/笔记，JS/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-HTTP" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/10/HTTP/">浏览器加载渲染网页过程</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/10/HTTP/">
+            <time datetime="2016-09-10T07:06:32.434Z" itemprop="datePublished">2016-09-10</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/HTTP/">HTTP</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="一-浏览器发起HTTP请求大致过程"><a href="#一-浏览器发起HTTP请求大致过程" class="headerlink" title="一. 浏览器发起HTTP请求大致过程"></a>一. 浏览器发起HTTP请求大致过程</h3><ul>
+<li>1.HTTP客户端发起请求，创建端口。</li>
+<li>2.HTTP服务器在端口监听客户端请求。</li>
+<li>3.HTTP服务器向客户端返回状态和内容。</li>
+</ul>
+<h3 id="二-浏览器主要组件"><a href="#二-浏览器主要组件" class="headerlink" title="二.浏览器主要组件"></a>二.浏览器主要组件</h3><ul>
+<li>1.用户界面</li>
+<li>2.浏览器引擎：用来查询操作渲染引擎的接口。</li>
+<li>3.渲染引擎：用来渲染服务器端返回的内容，firfox使用Geoko，safari，chrome以及opera使用webkit。</li>
+<li>4.JS解释器：用来执行JS代码。</li>
+<li>5.网络：用来完成网络调用。</li>
+</ul>
+<h3 id="三-浏览器加载网页过程"><a href="#三-浏览器加载网页过程" class="headerlink" title="三.浏览器加载网页过程"></a>三.浏览器加载网页过程</h3><ul>
+<li>1.当用户在浏览器中输入网址，浏览器首先通过DNS解析将网址解析成ip地址，若地址中不含端口号，则使用HTTP协议的默认端口。<blockquote>
+<p>关于DNS解析过程：输入浏览器的URL网址首先会通过我们在配置网络时配置好的DNS地址发送给DNS服务器，如果能够找到相应的URL地址和端口号则返回给浏览器，若不能找到该DNS会将该请求发送给上级的DNS服务器，整个DNS可以看成是一个树状结构。</p>
+</blockquote>
+</li>
+<li>2.请求建立连接成功后，开始向web服务器发送请求。</li>
+<li>3.当web服务器收到请求后会在其存储空间搜索index.html文件，若找到，则会将该文件返回给相应的web浏览器。</li>
+<li>4.当应答结束，浏览器和web服务器的连接关闭。以保证其它浏览器与web服务器建立连接。</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/09/10/HTTP/" data-id="ciswuom3700003gm72hunz2ew" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/09/10/HTTP/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://yoursite.com/2016/09/10/HTTP/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-HEXO博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -261,7 +537,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/09/07/HEXO博客搭建/" data-id="cistyvd3b00008om7u6k31adh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2016/09/07/HEXO博客搭建/" data-id="ciswuom5100033gm7wn3f6d9w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -391,7 +667,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/08/24/git使用方法整理/" data-id="cistyvd3k00018om7dldo12b7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2016/08/24/git使用方法整理/" data-id="ciswuom5300043gm7o2u7hcm6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -481,6 +757,44 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/09/10/笔记，JS/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/10/笔记，JS/" class="title">Prototype</a></p>
+                            <p class="item-date"><time datetime="2016-09-10T07:06:32.443Z" itemprop="datePublished">2016-09-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/10/HTTP/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/10/HTTP/" class="title">浏览器加载渲染网页过程</a></p>
+                            <p class="item-date"><time datetime="2016-09-10T07:06:32.434Z" itemprop="datePublished">2016-09-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/09/07/HEXO博客搭建/" class="thumbnail">
     
     
@@ -527,7 +841,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -536,7 +850,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记，JS/">笔记，JS</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -545,7 +859,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
+            <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/笔记，JS/" style="font-size: 10px;">笔记，JS</a>
         </div>
     </div>
 
